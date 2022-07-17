@@ -1,24 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from "react";
+import Canvas from "./component/canvas";
+import AppContext from "./context/context";
+import { initialState } from "./context/state";
 
 function App() {
+  const [drawColor, setDrawColor] = useState("#000");
+  const [strokeSize, setStrokeSize] = useState(5);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContext.Provider
+      value={{ drawColor, setDrawColor, strokeSize, setStrokeSize }}
+    >
+      <Canvas />
+    </AppContext.Provider>
   );
 }
 
