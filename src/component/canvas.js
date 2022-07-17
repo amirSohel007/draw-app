@@ -34,13 +34,13 @@ const Canvas = () => {
     setDraw(false);
   };
 
-    const onDraw = ({ nativeEvent }) => {
+  const onDraw = ({ nativeEvent }) => {
+    nativeEvent.preventDefault();
+    nativeEvent.stopPropagation();
     if (!isDraw) {
       return;
     }
-        const { offsetX, offsetY, preventDefault, stopPropagation } = nativeEvent;
-        preventDefault()
-        stopPropagation()
+    const { offsetX, offsetY } = nativeEvent;
     ctxRef.current.lineWidth = strokeSize;
     ctxRef.current.strokeStyle = drawColor;
     ctxRef.current.lineTo(offsetX, offsetY);
