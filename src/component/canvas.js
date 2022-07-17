@@ -54,6 +54,9 @@ const Canvas = () => {
         onMouseDown={onStart}
         onMouseUp={onEnd}
         onMouseMove={onDraw}
+        onTouchMove={onDraw}
+        onTouchStart={onStart}
+        onTouchEnd={onEnd}
       />
     </>
   );
